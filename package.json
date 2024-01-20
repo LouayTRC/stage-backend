@@ -1,0 +1,27 @@
+{
+  "name": "stage-p",
+  "version": "1.0.0",
+  "description": "stage perfectionnement",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LouayTRC/stage-backend.git"
+  },
+  "author": "louay tarchoun",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LouayTRC/stage-backend/issues"
+  },
+  "homepage": "https://github.com/LouayTRC/stage-backend#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.0.4",
+    "mongoose-unique-validator": "^4.0.0",
+    "nodemon": "^3.0.2"
+  }
+}
