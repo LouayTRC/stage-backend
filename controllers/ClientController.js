@@ -15,7 +15,7 @@ exports.signup = async (req, res, next) => {
         .catch(error => res.status(400).json({ error }))
 }
 
-exports.getClient = (req, res, next) => {
+exports.getClients = (req, res, next) => {
     if (req.params?._id) {
         Client.findOne({ _id: req.params._id })
             .then(client => res.status(200).json({ client, message: 'client existant' }))

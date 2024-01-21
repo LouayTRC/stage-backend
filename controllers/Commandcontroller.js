@@ -79,7 +79,7 @@ exports.acceptCommand=async (req,res,next)=>{
             console.log("admin",admin);
             console.log("cmmd",cmmd);
             
-            console.log({id:cmmd.id})
+
             Command.updateOne({_id:req.params._id},{status:1,Admin:admin,_id:req.params._id})
 
             .then(cmmd=>res.status(200).json({cmmd}))
@@ -90,9 +90,3 @@ exports.acceptCommand=async (req,res,next)=>{
         }
     }
 };
-
-exports.getCommandsByClient=(req,res,next)=>{
-    Client.findOne({user:req.auth.user_id})
-    .then(client=>res.status(200).json({client}))
-    .catch(error=>res.status(404).json({error}))
-}

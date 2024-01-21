@@ -14,6 +14,14 @@ const clientSchema = mongoose.Schema({
           }
       }
     ],
+    playlists:[
+      {
+          favorites:{
+              type: mongoose.Schema.Types.ObjectId, 
+              ref: 'Favorites'
+          }
+      }
+    ],
     adress:{type:String},
     phone:{type:String}
   },{ versionKey: false});

@@ -1,0 +1,323 @@
+{
+	"info": {
+		"_postman_id": "e6f57d66-e112-49cd-8345-5b56c119579c",
+		"name": "stage perfectionnement",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "24150064"
+	},
+	"item": [
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "addProduct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"ccc\",\r\n    \"qte\":4,\r\n    \"description\":\"feha aajeltin\",\r\n    \"category\":\"vehicule\",\r\n    \"price\":5000,\r\n    \"status\":\"dispo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/Product"
+					},
+					"response": []
+				},
+				{
+					"name": "getAllProducts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/api/Product"
+					},
+					"response": []
+				},
+				{
+					"name": "getProductById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"aaaa\",\r\n    \"qte\": 8,\r\n    \"description\": \" aajeltin\",\r\n    \"category\": \"vehicule\",\r\n    \"prix\": 5000,\r\n    \"statut\": \"dispo\",\r\n    \"id_product\": \"65a56c283f8d10eb26fb504b\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/product/65a56c95a620096004d15d5d"
+					},
+					"response": []
+				},
+				{
+					"name": "updateProduct",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": "http://localhost:3000/api/Product/65a56c283f8d10eb26fb504b"
+					},
+					"response": []
+				},
+				{
+					"name": "deleteProduct",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:3000/api/Product/65a56c283f8d10eb26fb504b"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mail\":\"louaytrc@gmail.com\",\r\n    \"username\":\"louuu\",\r\n    \"password\":\"louuu\",\r\n    \"fullname\":\"louay tarchoun\",\r\n    \"date_naissance\":\"06/03/2003\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/client/signup"
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"louuu\",\r\n    \"password\":\"louuu\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/auth/login"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "admin",
+			"item": [
+				{
+					"name": "addAdmin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFhYWEiLCJpYXQiOjE3MDU0MDU2MDEsImV4cCI6MTcwNTQ5MjAwMX0.hMXkiAjmwsQ1W0u8gUoAIiOilcU8zt1qyE86TeiLREg"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mail\":\"njnjnb\",\r\n    \"username\":\"okoh\",\r\n    \"password\":\"test\",\r\n    \"fullname\":\"louay tarchoun\",\r\n    \"date_naissance\":\"06/03/2003\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/admin"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "client",
+			"item": [
+				{
+					"name": "getClientByID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/client/65a68ce941484b09f26c0989"
+					},
+					"response": []
+				},
+				{
+					"name": "getAllClients",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/client/65a68ce941484b09f26c0989"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "command",
+			"item": [
+				{
+					"name": "addCommand",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Client\":\"65a8fd6519d2be43ae763333\",\r\n    \"Products\":[\r\n        {\r\n            \"product\":\"65a8fdc3402361bb21df7895\",\r\n            \"qte\":3\r\n        },\r\n        {\r\n            \"product\":\"65a8ffeb49ac4e3804581ab6\",\r\n            \"qte\":2\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/cmmd"
+					},
+					"response": []
+				},
+				{
+					"name": "getAllCommands",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/api/cmmd"
+					},
+					"response": []
+				},
+				{
+					"name": "getCmmdById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/api/cmmd/65a907bf8182762f207c3b6e"
+					},
+					"response": []
+				},
+				{
+					"name": "acceptCommand",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjVhOTI2MDdkNmQ5ZWE1ZTMzNzE0MjFkIiwidXNlcl9Sb2xlIjoiQURNSU4iLCJpYXQiOjE3MDU1ODQxODMsImV4cCI6MTcwNTY3MDU4M30.aL3Mpy-d-v89iBWsysuK0Kl3YgyGdH3EEsqipx5DeYg"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"url": "http://localhost:3000/api/cmmd/65a921f7d7fa7a7ce6719dcf/accept"
+					},
+					"response": []
+				},
+				{
+					"name": "getCommandsByClient",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/api/cmmd/client"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "favorites",
+			"item": [
+				{
+					"name": "addPlaylist",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"list_name\":\"aaaa\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/favorites"
+					},
+					"response": []
+				},
+				{
+					"name": "getFavorites",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "getFavoritesById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/api/favorites/65abf0f1121d40bc47c3a5a6"
+					},
+					"response": []
+				},
+				{
+					"name": "addProduct",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": "http://localhost:3000/api/favorites/65abf0f1121d40bc47c3a5a6/65a914a7aabb5a4f10bb850b"
+					},
+					"response": []
+				},
+				{
+					"name": "deleteProduct",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
