@@ -3,6 +3,7 @@ const bcrypt=require('bcrypt');
 const jwt=require('jsonwebtoken');
 
 exports.login=(req,res,next)=>{
+    console.log("req",req.body);
     User.findOne({username:req.body.username})
         .then(user=>{
             if(!user){
@@ -15,8 +16,8 @@ exports.login=(req,res,next)=>{
                         return res.status(401).json({message:"login/mdp incorrect"});
                     }
                     res.status(200).json({
-                        user_id:user._id,
-                        user_Role:user.role,
+                        // user_id:user._id,
+                        // user_Role:user.role,
                         token:jwt.sign(
                             {
                                 user_id:user._id,
@@ -40,7 +41,7 @@ exports.createUser=(userData)=>{
             username:userData.username,
             password:hash,
             fullname:userData.fullname,
-            date_naissance:userData.date_naissance,
+            birthday:userData.birthday,
             pdp:userData.pdp
         })
         return user;

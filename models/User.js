@@ -6,7 +6,7 @@ const userSchema=mongoose.Schema({
     username:{type:String,required:true,unique:true},
     password:{type:String,required:true},
     fullname:{type:String,required:true},
-    date_naissance:{type:Date,required:true},
+    birthday:{type:String,required:true},
     role:{type:String},
     pdp:{type:String}
 },{ versionKey: false});

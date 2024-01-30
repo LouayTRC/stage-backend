@@ -5,7 +5,7 @@ exports.createProduct=(req, res, next) => {
         ...req.body
     });
     product.save()
-        .then(() => res.status(201).json({ product,message: 'objet enregistré' }))
+        .then(() => res.status(201).json(product))
         .catch(error => res.status(400).json({ error }));
 };
 
@@ -31,5 +31,48 @@ exports.updateProduct=(req,res,next)=>{
 exports.deleteProduct=(req,res,next)=>{
     Product.deleteOne({_id:req.params._id})
     .then(()=> res.status(200).json({message:'delete avec succes'}))
-    .catch(()=> res.status(400).json({error}))
+    .catch(error=> res.status(400).json({error}))
 };
+
+exports.verifyProducts=async (productsCmmd)=>{
+    
+    const products=[]
+    let verified=true;
+    for (const element of productsCmmd) {
+        console.log("element",element);
+        const product=await Product.findOne({_id:element.idProduct});
+        if (!product) {
+            console.log("!",product);
+            verified=false
+            break;
+        } 
+        else {
+            if (element.qte>product.qte || product.status!=1) {
+                console.log("quan",product);
+                verified=false
+                break
+            }
+            else{
+                product.qte=element.qte
+            
+                products.push(product);
+            }
+        
+        }
+    }
+   return {verified,productsCmmd:products }
+}
+
+exports.listProducts=async (req,res,next)=>{
+    const products=[];
+    for (const element of req.body) {
+        const prd=await Product.findOne({_id:element.idProduct});
+        if (!prd) {
+            return res.status(404).json({error})
+        } else {
+            products.push(prd);
+        }
+    }
+
+    return res.status(200).json(products);
+}

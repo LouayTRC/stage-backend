@@ -6,24 +6,19 @@ exports.createPlaylist = async (req, res, next) => {
     const client = await Client.findOne({ user: req.auth.user_id });
     console.log("zz",client);
     const playList = new Favourites({
-        list_name: req.params.name,
+        list_name: req.body.name,
         Client:client,
         products: []
     });
     console.log("list",playList);
     playList.save()
-        .then((liste) => {
-            client.playlists.push(playList);
-            Client.updateOne({_id:client._id},{playlists:playList,_id:client._id})
-            .then((client)=>res.status(201).json({ liste }))
-            .catch(error => res.status(400).json({ error }))
-        })
+        .then((liste) =>res.status(201).json({ liste }))
         .catch(error => res.status(400).json({ error }))
 };
 
 exports.addProduct = async (req, res, next) => {
     const playList = await Favourites.findOne({ _id: req.params.id })
-    const product = await Product.findOne({ _id: req.params.idP })
+    const product = await Product.findOne({ _id: req.body.idP })
     console.log('pp', product);
     playList.products.push(product);
 
@@ -33,14 +28,15 @@ exports.addProduct = async (req, res, next) => {
 
 };
 
-exports.getPLaylists = (req, res, next) => {
+exports.getPLaylists = async (req, res, next) => {
     if (req.params?.id) {
         Favourites.findOne({ _id: req.params.id })
             .then((playlist) => res.status(200).json({ playlist }))
             .catch((error) => res.status(400).json({ error }))
     } else {
-        Favourites.find()
-            .then((playlists) => res.status(200).json({ playlists }))
+        const client=await Client.findOne({user:req.auth.user_id})
+        Favourites.find({Client:client._id})
+            .then((playlists) => res.status(200).json(playlists ))
             .catch(error => res.status(400).json({ error }))
     }
 };

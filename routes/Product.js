@@ -4,6 +4,7 @@ const router=express.Router();
 const onlyAdmin=require('../middleware/onlyAdmin');
 const authenticate=require('../middleware/authenticate');
 
+router.post('/list',ProductCtrl.listProducts)
 router.post('/',authenticate,onlyAdmin,ProductCtrl.createProduct);
 
 router.get('/:_id?',ProductCtrl.getProduct);
