@@ -6,6 +6,6 @@ const authenticate=require('../middleware/authenticate');
 
 
 router.post('/signup',clientCtrl.signup);
-router.get('/:_id?',authenticate,onlyAdmin,clientCtrl.getClients);
-
+router.get('/',authenticate,clientCtrl.getClient);
+router.put('/',authenticate,clientCtrl.updateClient)
 module.exports=router;

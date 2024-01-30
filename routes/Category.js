@@ -4,5 +4,6 @@ const categoryCtrl=require('../controllers/categoryController');
 
 router.post('/',categoryCtrl.createCategory);
 router.delete('/:id',categoryCtrl.deleteCategory);
+router.get('/',categoryCtrl.getCategories);
 
 module.exports=router;

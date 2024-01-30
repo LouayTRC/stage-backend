@@ -47,3 +47,8 @@ exports.createUser=(userData)=>{
         return user;
     })
 }
+
+exports.getUser=async (userId)=>{
+    const user=await User.findOne({_id:userId})
+    return user;
+}
