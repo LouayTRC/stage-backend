@@ -1,6 +1,5 @@
 module.exports = (req, res, next) => {
     const userRole = req.auth.user_Role;
-    console.log("see", req.auth);
     if (userRole=="ADMIN") {
         next();
     } else {

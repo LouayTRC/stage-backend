@@ -5,7 +5,7 @@ exports.createCategory=(req,res,next)=>{
         name:req.body.name
     });
     category.save()
-    .then((category)=>res.status(201).json({category}))
+    .then((category)=>res.status(201).json(category))
     .catch(error=>res.status(400).json({error}));
 }
 
@@ -19,4 +19,9 @@ exports.getCategories=(req,res,next)=>{
     Category.find()
     .then(categorys=>res.status(200).json(categorys))
     .catch(error=>res.status(400).json({error}))
+}
+
+exports.getCategoryById=async (categoryId)=>{
+    const category=await Category.findOne({_id:categoryId});
+    return category;
 }

@@ -14,7 +14,8 @@ const favoritesSchema=mongoose.Schema({
                 ref: 'Product'
             }
         }
-    ]
-});
+    ],
+    pic:{type:String,required:true}
+}, { versionKey: false});
 
 module.exports=mongoose.model('Favourites',favoritesSchema);

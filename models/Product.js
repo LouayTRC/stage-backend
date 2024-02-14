@@ -9,6 +9,7 @@ const productSchema=mongoose.Schema({
         ref: 'Category',
         required:true
     },
+    pic:{type:String,required:true},
     price:{type:Number,required:true},
     status:{type:Number,required:true}
 }, { versionKey: false});
