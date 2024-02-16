@@ -3,6 +3,7 @@ const Product = require("../models/Product")
 const Client = require("../models/Client");
 
 exports.createPlaylist = async (req, res, next) => {
+    console.log("here");
     const client = await Client.findOne({ user: req.auth.user_id });
     const playList = new Favourites({
         list_name: req.body.name,
@@ -10,6 +11,7 @@ exports.createPlaylist = async (req, res, next) => {
         products: [],
         pic:"assets/heart.jpg"
     });
+    console.log("zz",playList);
     playList.save()
         .then((liste) => res.status(201).json(liste))
         .catch(error => res.status(400).json({ error }))

@@ -6,8 +6,8 @@ const clientSchema = mongoose.Schema({
         ref: 'User',
         required: true
     },
-    adress:{type:String},
-    phone:{type:String}
+    adress:{type:String,required:true},
+    phone:{type:String,required:true}
   },{ versionKey: false});
 
 module.exports=mongoose.model('Client',clientSchema);
