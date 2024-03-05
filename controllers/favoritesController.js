@@ -43,11 +43,6 @@ exports.getPLaylists = async (req, res, next) => {
     }
 };
 
-exports.renamePlaylist = async (req, res, next) => {
-    Favourites.updateOne({ _id: req.params.id }, { list_name: req.params.name })
-        .then(() => res.status(200).json({ message: "update avec succes" }))
-        .catch((error) => res.status(400).json({ error }))
-}
 exports.deletePlaylist = (req, res, next) => {
     Favourites.deleteOne({ _id: req.params.id })
         .then(() => res.status(200).json({ message: 'delete avec succes' }))

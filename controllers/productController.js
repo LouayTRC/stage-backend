@@ -100,7 +100,6 @@ exports.sellProducts = async (products, res) => {
 }
 
 exports.cancelSell = async (products) => {
-    
     for (const p of products) {
         await Product.updateOne({ _id: p._id }, { $inc: { qte: p.qte }, $set: { status: 1 }})
     }
